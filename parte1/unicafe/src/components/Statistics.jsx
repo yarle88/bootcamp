@@ -1,4 +1,4 @@
-import Info from "./Info";
+import StatisticLine  from "./StatisticLine ";
 
 export default function Statistics({ good, bad, neutral }) {
   const all = () => {
@@ -22,13 +22,13 @@ export default function Statistics({ good, bad, neutral }) {
       {(good==0 && bad==0 && neutral==0)?
       <p>No feedback given</p>:
       <>
-        <Info text="good" total={good} />
-        <Info text="neutral" total={neutral} />
-        <Info text="bad" total={bad} />
+        <StatisticLine  text="good" total={good} />
+        <StatisticLine  text="neutral" total={neutral} />
+        <StatisticLine  text="bad" total={bad} />
         <h3> more statistics</h3>
-        <Info text="all" total={all()} />
-        <Info text="average" total={average()} />
-        <Info text="positive" total={positive()} />
+        <StatisticLine  text="all" total={all()} />
+        <StatisticLine  text="average" total={average()} />
+        <StatisticLine  text="positive" total={positive()} />
       </>}
     </>
   );
