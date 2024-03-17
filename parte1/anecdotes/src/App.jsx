@@ -26,6 +26,19 @@ const App = () => {
 
   }
 
+  const getPosition=()=>{
+    let highest=0;
+    let pos=0;
+    for(let i=0; i<points.length; i++){
+      if(points[i]>highest){
+        highest=points[i];
+        pos=i;
+      }
+    }
+   
+    return pos;
+  }
+
   return (
     <div>
       <p>
@@ -34,6 +47,8 @@ const App = () => {
       <p>has {points[selected]} votes</p>
       <button onClick={vote}>vote</button>
       <button onClick={handleClick}>next anecdote</button>
+      <h2>Anecdote with most votes</h2>
+      <p>{anecdotes[getPosition()]}</p>
       
     </div>
   )
