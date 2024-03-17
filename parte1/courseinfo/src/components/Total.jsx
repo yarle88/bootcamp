@@ -1,5 +1,9 @@
-export default function Total({exercises1, exercises2, exercises3}){
+export default function Total({parts}){
+    let sum=0;
+    parts.map(part=>{
+      sum+=part.exercises;
+    })
     return(
-        <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+        <p>Number of exercises {sum}</p>
     );
 }
