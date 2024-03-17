@@ -1,5 +1,8 @@
-export default function StatisticLine  ({text, total}){
-    return(
-        <p>{text} {total}</p>
-    );
+export default function StatisticLine({ text, total }) {
+  return (
+    <tr>
+      <td><p>{text}</p> </td>
+      <td><p>{total}</p></td>
+    </tr>
+  );
 }
