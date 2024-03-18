@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import Person from "./components/Person";
+import Person from "./components/Persons";
 import { personsData } from "./data";
+import Filter from "./components/Filter";
+import PersonForm from "./components/PersonForm ";
+import Persons from "./components/Persons";
 
 const App = () => {
   const [persons, setPersons] = useState(personsData);
@@ -9,7 +12,12 @@ const App = () => {
   const [phone, setPhone] = useState("");
   const [filterItem, setFilterItem] = useState("");
 
-  const list=filterItem!=''? persons.filter(person=>person.name.toLowerCase().includes(filterItem)):persons;
+  const list =
+    filterItem != ""
+      ? persons.filter((person) =>
+          person.name.toLowerCase().includes(filterItem)
+        )
+      : persons;
 
   const addPerson = (e) => {
     e.preventDefault();
@@ -40,27 +48,16 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <div className="filter">
-      <p className="filter-text">Filter shown with: </p>
-      <input type="text" className="filter-input" onChange={changeFilter} value={filterItem} />
-      </div>
-      <form onSubmit={addPerson}>
-        <div>
-          Name: <input onChange={changeName} value={newName} />
-        </div>
-        <div>
-          Phone: <input onChange={changePhone} value={phone} />
-        </div>
-        <div>
-          <button className="btn" type="submit">
-            Add
-          </button>
-        </div>
-      </form>
+      <Filter changeFilter={changeFilter} filterItem={filterItem} />
+      <PersonForm
+        addPerson={addPerson}
+        changeName={changeName}
+        newName={newName}
+        changePhone={changePhone}
+        phone={phone}
+      />
       <h2>Numbers</h2>
-      {list.map((person) => (
-        <Person key={person.name} person={person} />
-      ))}
+      <Persons list={list} />
     </div>
   );
 };
