@@ -67,3 +67,18 @@ button{
   margin: 5px;
   margin-bottom: 0px;
 }
+.filter{
+  display: flex; 
+  border:1px solid white;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  padding: 5px;
+  align-items: center;
+}
+.filter-text{
+  border-bottom: 0px;
+}
+.filter-input{
+  height: 20px;
+  margin: 5px;
+}
