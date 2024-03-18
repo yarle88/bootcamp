@@ -1,9 +1,11 @@
 export default function Total({parts}){
-    let sum=0;
-    parts.map(part=>{
-      sum+=part.exercises;
-    })
+   
+
+     const totalSum=()=> parts.reduce((sum, part)=>{
+      return sum+part.exercises;
+     },0);
+     
     return(
-        <p>total of {sum} exercises </p>
+        <p>total of {totalSum()} exercises </p>
     );
 }
