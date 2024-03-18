@@ -8,7 +8,19 @@ const App = () => {
 
   const addPerson=(e)=>{
     e.preventDefault();
-    setPersons(persons.concat({'name':newName}))
+    const newPerson={name:newName};
+    const index=persons.findIndex(person=>person.name==newName )
+
+    console.log(newPerson)
+    console.log("persons: ",persons)
+    console.log('index :>> ', index);
+    if(index==-1){
+      setPersons(persons.concat(newPerson));
+    }
+    else{
+      alert(`${newName} is already added to the phonebook`)
+    }
+   
   }
 
   const changeName=(e)=>{
